@@ -4,17 +4,6 @@ import { TokenComponent } from './token.component';
 import { TokenService } from '../services/token.service';
 import { of } from 'rxjs/internal/observable/of';
 
-class MockTokenService {
-  getTokenFromApi(){
-    return of(
-      {
-        data: {
-          webToken : "THISISAWEBTOKEN"
-        }
-      }
-    );
-  }
-}
 
 describe('TokenComponent', () => {
   let component: TokenComponent;
@@ -41,6 +30,21 @@ describe('TokenComponent', () => {
   });
 
   it('should initiate with a token', () => {
-    expect(component.token['data']['webToken']).toBe('THISISAWEBTOKEN');
+    expect(component.token['data']['webToken']).toBeTruthy();
   });
 });
+
+
+class MockTokenService {
+  cache = new Map();
+
+  getTokenFromApi(){
+    return of(
+      {
+        data: {
+          webToken : "THISISAWEBTOKEN"
+        }
+      }
+    );
+  }
+}

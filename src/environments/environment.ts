@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  token_api: 'http://localhost:3000/'
+  token_api: 'http://localhost:3000'
 };
 
 /*

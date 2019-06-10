@@ -24,11 +24,7 @@ describe('TokenService', () => {
 
   it('should return the demo token', () => {
     service.getTokenFromApi().subscribe(data => {
-      expect(data).toBe({
-        data: {
-          "webToken" : "THISISAWEBTOKEN"
-        }
-      });
+      expect(data['data']['webToken']).toBe("THISISAWEBTOKEN");
     });
 
     const req = httpTestingController.expectOne(`${environment.token_api}/token`);
@@ -40,6 +36,6 @@ describe('TokenService', () => {
 
 const sampleToken = {
   data: {
-    "webToken" : "THISISAWEBTOKEN"
+    webToken : "THISISAWEBTOKEN"
   }
 }

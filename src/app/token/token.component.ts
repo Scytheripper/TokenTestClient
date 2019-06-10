@@ -16,4 +16,10 @@ export class TokenComponent implements OnInit {
     });
   }
 
+  getCachedToken() {
+    this.tokenService.getTokenFromApi().subscribe( data => {
+      this.token = data;
+    });
+  }
+
 }

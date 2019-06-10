@@ -41,6 +41,6 @@ describe('TokenComponent', () => {
   });
 
   it('should initiate with a token', () => {
-    expect(component.token.webToken).toBe('THISISAWEBTOKEN');
+    expect(component.token['data']['webToken']).toBe('THISISAWEBTOKEN');
   });
 });
